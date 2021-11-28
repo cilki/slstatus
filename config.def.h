@@ -7,7 +7,7 @@ const unsigned int interval = 1000;
 static const char unknown_str[] = "n/a";
 
 /* maximum output string length */
-#define MAXLEN 2048
+#define MAXLEN 256
 
 /*
  * function            description                     argument (example)
@@ -64,6 +64,12 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	/* function    format                argument */
+	{ ram_perc,    "MEM %s%%",           NULL },
+    { separator,   " | ",                NULL },
+    { cpu_freq,    "CPU %sHz",           NULL },
+    { cpu_perc,    " %s%%",              NULL },
+    { separator,   " | ",                NULL },
+    { netspeed_rx, "NET ↓↓ %-6sB",       "enp7s0" },
+    { netspeed_tx, " ↑↑ %-6sB",          "enp7s0" },
 };
